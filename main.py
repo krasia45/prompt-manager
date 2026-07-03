@@ -129,6 +129,18 @@ def add_prompt():
             print("⚠ 해당 번호의 프롬프트가 존재하지 않습니다.")
     except ValueError:
         print("⚠ 숫자만 입력해주세요.")
+        def manage_favorite():
+    print("\n=== 즐겨찾기 관리 ===")
+    try:
+        idx = int(input("즐겨찾기 설정/해제할 번호 입력: ")) - 1
+        if 0 <= idx < len(prompts):
+            prompts[idx]["favorite"] = not prompts[idx]["favorite"]
+            status = "추가" if prompts[idx]["favorite"] else "해제"
+            print(f"'{prompts[idx]['title']}' 프롬프트를 즐겨찾기에 {status}했습니다!")
+        else:
+            print("⚠ 해당 번호의 프롬프트가 없습니다.")
+    except ValueError:
+        print("⚠ 숫자만 입력해주세요.")
 while True:
     show_menu()
     user_choice = input("선택: ").strip()
@@ -146,6 +158,8 @@ elif user_choice == "4":
         search_prompt()
 elif user_choice == "5":
         show_detail()
+elif user_choice == "6":
+        manage_favorite()
     else:
         print("잘못된 선택입니다. 다시 시도해 주세요.")
 
