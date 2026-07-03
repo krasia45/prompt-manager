@@ -111,6 +111,24 @@ def add_prompt():
         print("검색 결과가 없습니다.")
     else:
         print(f"\n{count}개의 프롬프트를 찾았습니다.")
+        def show_detail():
+    print("\n=== 프롬프트 상세 보기 ===")
+    try:
+        idx = int(input("조회할 프롬프트 번호 입력: ")) - 1
+        if 0 <= idx < len(prompts):
+            p = prompts[idx]
+            star = "⭐" if p["favorite"] else "없음"
+            print("─" * 30)
+            print(f"제목: {p['title']}")
+            print(f"카테고리: {p['category']}")
+            print(f"즐겨찾기: {star}")
+            print("─" * 30)
+            print(f"내용:\n{p['content']}")
+            print("─" * 30)
+        else:
+            print("⚠ 해당 번호의 프롬프트가 존재하지 않습니다.")
+    except ValueError:
+        print("⚠ 숫자만 입력해주세요.")
 while True:
     show_menu()
     user_choice = input("선택: ").strip()
@@ -126,6 +144,8 @@ elif user_choice == "3":
         show_by_category()
 elif user_choice == "4":
         search_prompt()
+elif user_choice == "5":
+        show_detail()
     else:
         print("잘못된 선택입니다. 다시 시도해 주세요.")
 
