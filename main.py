@@ -32,6 +32,7 @@ def show_menu():
     print("7. 즐겨찾기 목록")
     print("0. 종료")
     print("=============================")
+
 def add_prompt():
     print("\n=== 프롬프트 추가 ===")
     title = input("제목: ").strip()
@@ -63,7 +64,7 @@ def add_prompt():
     prompts.append(new_item)
     print("🎉 프롬프트가 성공적으로 추가되었습니다!")
 
-    def show_list():
+def show_list():
     print("\n=== 프롬프트 목록 ===")
     if not prompts:
         print("등록된 프롬프트가 없습니다.")
@@ -74,7 +75,7 @@ def add_prompt():
         print(f"{idx}. [{p['category']}] {p['title']} {star}")
     print(f"\n총 {len(prompts)}개의 프롬프트")
 
-    def show_by_category():
+def show_by_category():
     print("\n=== 카테고리별 조회 ===")
     for idx, cat in enumerate(categories, 1):
         print(f"{idx}) {cat}")
@@ -98,7 +99,8 @@ def add_prompt():
         print("해당 카테고리에 등록된 프롬프트가 없습니다.")
     else:
         print(f"\n총 {count}개의 프롬프트")
-        def search_prompt():
+
+def search_prompt():
     print("\n=== 프롬프트 검색 ===")
     keyword = input("검색어 입력: ").strip()
     
@@ -118,7 +120,8 @@ def add_prompt():
         print("검색 결과가 없습니다.")
     else:
         print(f"\n{count}개의 프롬프트를 찾았습니다.")
-        def show_detail():
+
+def show_detail():
     print("\n=== 프롬프트 상세 보기 ===")
     try:
         idx = int(input("조회할 프롬프트 번호 입력: ")) - 1
@@ -136,7 +139,8 @@ def add_prompt():
             print("⚠ 해당 번호의 프롬프트가 존재하지 않습니다.")
     except ValueError:
         print("⚠ 숫자만 입력해주세요.")
-        def manage_favorite():
+
+def manage_favorite():
     print("\n=== 즐겨찾기 관리 ===")
     try:
         idx = int(input("즐겨찾기 설정/해제할 번호 입력: ")) - 1
@@ -148,7 +152,8 @@ def add_prompt():
             print("⚠ 해당 번호의 프롬프트가 없습니다.")
     except ValueError:
         print("⚠ 숫자만 입력해주세요.")
-        def show_favorites():
+
+def show_favorites():
     print("\n=== 즐겨찾기 목록 ===")
     count = 0
     for idx, p in enumerate(prompts, 1):
@@ -160,31 +165,27 @@ def add_prompt():
         print("즐겨찾기된 프롬프트가 없습니다.")
     else:
         print(f"\n총 {count}개의 즐겨찾기")
+
 while True:
     show_menu()
     user_choice = input("선택: ").strip()
+    
     if user_choice == "0":
         print("프로그램을 종료합니다. 이용해 주셔서 감사합니다!")
         break
     elif user_choice == "1":
         add_prompt()
-      
-   elif user_choice == "2":
+    elif user_choice == "2":
         show_list()
-elif user_choice == "3":
+    elif user_choice == "3":
         show_by_category()
-elif user_choice == "4":
+    elif user_choice == "4":
         search_prompt()
-elif user_choice == "5":
+    elif user_choice == "5":
         show_detail()
-elif user_choice == "6":
+    elif user_choice == "6":
         manage_favorite()
-elif user_choice == "7":
+    elif user_choice == "7":
         show_favorites()
     else:
-        print("잘못된 선택입니다. 다시 시도해 주세요.")
-
-        prompt_manager = {
-            "categories": categories,
-            "prompts": prompts
-        }
+        print("⚠ 잘못된 번호입니다. 0~7 사이의 숫자를 입력해주세요.")
