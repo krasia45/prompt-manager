@@ -66,6 +66,31 @@ def add_prompt():
         star = "⭐" if p["favorite"] else ""
         print(f"{idx}. [{p['category']}] {p['title']} {star}")
     print(f"\n총 {len(prompts)}개의 프롬프트")
+
+    def show_by_category():
+    print("\n=== 카테고리별 조회 ===")
+    for idx, cat in enumerate(categories, 1):
+        print(f"{idx}) {cat}")
+    
+    try:
+        choice = int(input("선택: "))
+        selected_cat = categories[choice - 1]
+    except (ValueError, IndexError):
+        print("⚠ 잘못된 선택입니다.")
+        return
+
+    print(f"\n[{selected_cat}] 카테고리 프롬프트:")
+    count = 0
+    for idx, p in enumerate(prompts, 1):
+        if p["category"] == selected_cat:
+            star = "⭐" if p["favorite"] else ""
+            print(f"{idx}. {p['title']} {star}")
+            count += 1
+            
+    if count == 0:
+        print("해당 카테고리에 등록된 프롬프트가 없습니다.")
+    else:
+        print(f"\n총 {count}개의 프롬프트")
 while True:
     show_menu()
     user_choice = input("선택: ").strip()
@@ -77,6 +102,8 @@ while True:
       
    elif user_choice == "2":
         show_list()
+elif user_choice == "3":
+        show_by_category()
     else:
         print("잘못된 선택입니다. 다시 시도해 주세요.")
 
