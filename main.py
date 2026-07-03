@@ -91,6 +91,26 @@ def add_prompt():
         print("해당 카테고리에 등록된 프롬프트가 없습니다.")
     else:
         print(f"\n총 {count}개의 프롬프트")
+        def search_prompt():
+    print("\n=== 프롬프트 검색 ===")
+    keyword = input("검색어 입력: ").strip()
+    
+    if not keyword:
+        print("⚠ 검색어를 입력하셔야 합니다.")
+        return
+
+    print("\n검색 결과:")
+    count = 0
+    for idx, p in enumerate(prompts, 1):
+        if keyword in p["title"] or keyword in p["content"]:
+            star = "⭐" if p["favorite"] else ""
+            print(f"{idx}. [{p['category']}] {p['title']} {star}")
+            count += 1
+            
+    if count == 0:
+        print("검색 결과가 없습니다.")
+    else:
+        print(f"\n{count}개의 프롬프트를 찾았습니다.")
 while True:
     show_menu()
     user_choice = input("선택: ").strip()
@@ -104,6 +124,8 @@ while True:
         show_list()
 elif user_choice == "3":
         show_by_category()
+elif user_choice == "4":
+        search_prompt()
     else:
         print("잘못된 선택입니다. 다시 시도해 주세요.")
 
