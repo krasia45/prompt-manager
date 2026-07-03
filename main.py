@@ -141,6 +141,18 @@ def add_prompt():
             print("⚠ 해당 번호의 프롬프트가 없습니다.")
     except ValueError:
         print("⚠ 숫자만 입력해주세요.")
+        def show_favorites():
+    print("\n=== 즐겨찾기 목록 ===")
+    count = 0
+    for idx, p in enumerate(prompts, 1):
+        if p["favorite"]:
+            print(f"{idx}. [{p['category']}] {p['title']} ⭐")
+            count += 1
+            
+    if count == 0:
+        print("즐겨찾기된 프롬프트가 없습니다.")
+    else:
+        print(f"\n총 {count}개의 즐겨찾기")
 while True:
     show_menu()
     user_choice = input("선택: ").strip()
@@ -160,6 +172,8 @@ elif user_choice == "5":
         show_detail()
 elif user_choice == "6":
         manage_favorite()
+elif user_choice == "7":
+        show_favorites()
     else:
         print("잘못된 선택입니다. 다시 시도해 주세요.")
 
