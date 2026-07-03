@@ -17,3 +17,4 @@ GenAI 기초부터 제작한 다양한 프롬프트(텍스트, 이미지, 페르
 1. 저장소를 클론합니다.
 ```bash
 git clone [https://github.com/krasia45/prompt-manager.git](https://github.com/krasia45/prompt-manager.git)
+# 최종 확인 완료
