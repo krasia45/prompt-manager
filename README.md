@@ -18,3 +18,16 @@ GenAI 기초부터 제작한 다양한 프롬프트(텍스트, 이미지, 페르
 ```bash
 git clone [https://github.com/krasia45/prompt-manager.git](https://github.com/krasia45/prompt-manager.git)
 # 최종 확인 완료
+
+
+VSCode에서 빈 폴더 열기: 새 폴더를 하나 만들어서 VSCode로 엽니다.
+
+터미널 열기: 상단 메뉴에서 [Terminal] -> [New Terminal]을 켭니다.
+
+명령어 입력하기: 터미널 창에 아래 명령어를 그대로 입력하고 엔터를 칩니다.
+
+Bash
+git clone https://github.com/krasia45/prompt-manager.git .
+*(끝에 한 칸 띄우고 마침표(.)*를 꼭 찍어주셔야 현재 폴더에 예쁘게 풀립니다!)
+
+확인 및 실행: 엔터를 치면 1초 만에 깃허브에 있던 파일들이 왼쪽에 쫙 나타납니다. 그대로 python main.py를 입력해서 다시 연습해 보시면 됩니다.
